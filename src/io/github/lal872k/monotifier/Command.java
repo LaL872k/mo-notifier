@@ -575,6 +575,9 @@ public class Command {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
+            }),
+            new Command("help", (engine, scan) -> {
+                Engine.printHelp();
             })
         };
     }
