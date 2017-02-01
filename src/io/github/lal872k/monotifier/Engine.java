@@ -158,7 +158,7 @@ public class Engine {
     
     public static void printHelp(){
         System.out.println("Missed Obligation Notifier (MON) by L. Arthur Lewis II.");
-        System.out.println("View the source code online: https://github.com/LaL872k/mo-notifier/tree/master");
+        System.out.println("View the source code online: https://github.com/LaL872k/mo-notifier/");
         System.out.println("Type 'list_commands' for a list of commands in the console.");
     }
     
