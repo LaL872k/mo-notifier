@@ -43,8 +43,7 @@ public class GMail {
         "MO Notifications";
 
     /** Directory to store user credentials for this application. */
-    private static final java.io.File DATA_STORE_DIR = new java.io.File(
-        "D:/MyProfile/Desktop/.credentials/gmail-java-quickstart");
+    private static final java.io.File DATA_STORE_DIR;
 
     /** Global instance of the {@link FileDataStoreFactory}. */
     private static FileDataStoreFactory DATA_STORE_FACTORY;
@@ -67,6 +66,7 @@ public class GMail {
     private static Gmail gmail;
     
     static {
+        DATA_STORE_DIR = new java.io.File("credentials/gmail");
         try {
             HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
             DATA_STORE_FACTORY = new FileDataStoreFactory(DATA_STORE_DIR);

@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -40,8 +41,7 @@ public class GDrive {
         "MO Notifications";
 
     /** Directory to store user credentials for this application. */
-    private static final java.io.File DATA_STORE_DIR = new java.io.File(
-        "D:/MyProfile/Desktop/.credentials/drive-java-quickstart");
+    public static final java.io.File DATA_STORE_DIR;
 
     /** Global instance of the {@link FileDataStoreFactory}. */
     private static FileDataStoreFactory DATA_STORE_FACTORY;
@@ -73,9 +73,14 @@ public class GDrive {
     
     static {
         try {
+            JAR_PATH = new java.io.File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).getParent();
+        } catch (URISyntaxException ex) {
+            ex.printStackTrace();
+        }
+        DATA_STORE_DIR = new java.io.File(JAR_PATH+"/credentials/google-drive");
+        try {
             HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
             DATA_STORE_FACTORY = new FileDataStoreFactory(DATA_STORE_DIR);
-            JAR_PATH = new java.io.File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).getParent();
         } catch (Throwable t) {
             t.printStackTrace();
             System.exit(1);
