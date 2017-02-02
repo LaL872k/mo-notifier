@@ -66,7 +66,7 @@ public class GMail {
     private static Gmail gmail;
     
     static {
-        DATA_STORE_DIR = new java.io.File("credentials/gmail");
+        DATA_STORE_DIR = new java.io.File(GDrive.DATA_STORE_DIR+"credentials/gmail");
         try {
             HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
             DATA_STORE_FACTORY = new FileDataStoreFactory(DATA_STORE_DIR);
